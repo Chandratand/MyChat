@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyChatSocketAsync\MyChatSocketAsync.csproj">
+      <Project>{7fe43139-6733-453a-92ce-3ae849d7dc18}</Project>
+      <Name>MyChatSocketAsync</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
