@@ -113,11 +113,34 @@ namespace MyChatSocketAsync
 
         private void RemoveClient(TcpClient paramClient)
         {
-            if (mClients.Contains(paramClient)
+            if (mClients.Contains(paramClient))
             {
                 mClients.Remove(paramClient);
                 Console.WriteLine("Client removed, jumalah : "+ mClients.Count);
             }
+        }
+
+        public async void SendToAll(string leMessage)
+        {
+            if (string.IsNullOrEmpty(leMessage))
+            {
+                return;
+            }
+            try
+            {
+                byte[] buffMessage = Encoding.ASCII.GetBytes(leMessage);
+
+                foreach (TcpClient c in mClients)
+                {
+                    c.GetStream().WriteAsync(buffMessage, 0, buffMessage.Length);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+
         }
     }
 }
