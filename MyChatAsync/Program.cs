@@ -14,6 +14,8 @@ namespace MyChatAsync
         {
             mServer = new MyChatServer();
             mServer.StartListeningForIncomingConnection();
+
+            Console.ReadKey();
         }
     }
 }

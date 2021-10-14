@@ -1,0 +1,10 @@
+D:\MyChat\MyChatAsync\MyChatAsync\bin\Debug\MyChatAsync.exe.config
+D:\MyChat\MyChatAsync\MyChatAsync\bin\Debug\MyChatAsync.exe
+D:\MyChat\MyChatAsync\MyChatAsync\bin\Debug\MyChatAsync.pdb
+D:\MyChat\MyChatAsync\MyChatAsync\bin\Debug\MyChatSocketAsync.dll
+D:\MyChat\MyChatAsync\MyChatAsync\bin\Debug\MyChatSocketAsync.pdb
+D:\MyChat\MyChatAsync\MyChatAsync\obj\Debug\MyChatAsync.csprojAssemblyReference.cache
+D:\MyChat\MyChatAsync\MyChatAsync\obj\Debug\MyChatAsync.csproj.CoreCompileInputs.cache
+D:\MyChat\MyChatAsync\MyChatAsync\obj\Debug\MyChatAsync.csproj.CopyComplete
+D:\MyChat\MyChatAsync\MyChatAsync\obj\Debug\MyChatAsync.exe
+D:\MyChat\MyChatAsync\MyChatAsync\obj\Debug\MyChatAsync.pdb
