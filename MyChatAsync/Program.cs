@@ -9,10 +9,11 @@ namespace MyChatAsync
 {
     class Program
     {
-        MyChatServer mServer = new MyChatServer();
+        static MyChatServer mServer;
         static void Main(string[] args)
         {
-            StartL
+            mServer = new MyChatServer();
+            mServer.StartListeningForIncomingConnection();
         }
     }
 }
