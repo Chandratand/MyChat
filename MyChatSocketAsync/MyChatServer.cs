@@ -15,8 +15,15 @@ namespace MyChatSocketAsync
         int mPort;
         TcpListener mTCPListener;
 
+        List<TcpClient> mClients;
         public bool KeepRunning { get; set; }
 
+        //simple constraktor
+
+        public MyChatServer()
+        {
+            mClients = new List<TcpClient>();
+        }
         public async void StartListeningForIncomingConnection(IPAddress ipaddr = null, int port = 23000)
         {
             if (ipaddr == null)
@@ -41,10 +48,12 @@ namespace MyChatSocketAsync
                 KeepRunning = true;
                 while (KeepRunning)
                 { 
-                      var returnedByAccept =  await mTCPListener.AcceptTcpClientAsync();
-                    
-                      Console.WriteLine("Client Berhasil Terhubung : " + returnedByAccept.ToString() );
+                    var returnedByAccept =  await mTCPListener.AcceptTcpClientAsync();
 
+                     mClients.Add(returnedByAccept);
+
+                    Console.WriteLine($"Client Berhasil Terhubung, jumlah : {mClients.Count} - {returnedByAccept.Client.RemoteEndPoint}"); 
+                   
                     TakeCareOfTCPClient(returnedByAccept);
 
                 }
@@ -79,6 +88,8 @@ namespace MyChatSocketAsync
 
                     if (nRet == 0)
                     {
+                        RemoveClient(paramClient);
+
                         Console.WriteLine("Socket Terputus");
                         break;
                     }
@@ -93,11 +104,20 @@ namespace MyChatSocketAsync
             }
             catch (Exception ex)
             {
-
+                RemoveClient(paramClient);
                 Console.WriteLine(ex.ToString());
             }
 
 
+        }
+
+        private void RemoveClient(TcpClient paramClient)
+        {
+            if (mClients.Contains(paramClient)
+            {
+                mClients.Remove(paramClient);
+                Console.WriteLine("Client removed, jumalah : "+ mClients.Count);
+            }
         }
     }
 }
