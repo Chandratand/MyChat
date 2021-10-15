@@ -18,9 +18,21 @@ namespace MyChatAsync
             do
             {
                 message = Console.ReadLine();
-                mServer.SendToAll(message);
 
-            } while (message == "<EXIT>");
+                if (message == "<STOP>")
+                {
+                    mServer.SendToAll(message);
+                    mServer.StopServer();
+                }
+                else
+                {
+                    mServer.SendToAll(message);
+                    Console.WriteLine("Data Terkirim");
+                }
+              
+
+
+            } while (message != "<EXIT>");
 
             Console.ReadKey();
         }

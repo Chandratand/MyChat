@@ -68,6 +68,28 @@ namespace MyChatSocketAsync
             
         }
 
+        public void StopServer()
+        {
+            try
+            {
+                if (mTCPListener == null)
+                {
+                    mTCPListener.Stop();
+                }
+
+                foreach (TcpClient c in mClients)// menutup server untuk setiap client
+                {
+                    c.Close();
+                }
+                mClients.Clear();//menghapus semua list client yang ada
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.ToString());
+            }
+        }
+
         private async void TakeCareOfTCPClient(TcpClient paramClient)
         {
             NetworkStream stream = null;
@@ -105,7 +127,7 @@ namespace MyChatSocketAsync
             catch (Exception ex)
             {
                 RemoveClient(paramClient);
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine("Server Disconected");
             }
 
 
